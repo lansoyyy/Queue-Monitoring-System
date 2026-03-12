@@ -59,9 +59,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             Container(
               height: 4,
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: AppColors.welcomeGradient,
-                ),
+                gradient: LinearGradient(colors: AppColors.welcomeGradient),
               ),
             ),
             Expanded(
@@ -157,9 +155,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                _infoChip(Icons.location_on, 'Cagayan de Oro City'),
+                                _infoChip(
+                                  Icons.location_on,
+                                  'Cagayan de Oro City',
+                                ),
                                 const SizedBox(width: 16),
-                                _infoChip(Icons.access_time, 'Mon–Fri  7:00 AM–5:00 PM'),
+                                _infoChip(
+                                  Icons.access_time,
+                                  'Mon–Fri  7:00 AM–5:00 PM',
+                                ),
                               ],
                             ),
                           ],

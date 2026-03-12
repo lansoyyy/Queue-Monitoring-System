@@ -1,9 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/constants/app_colors.dart';
 import 'screens/welcome_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyD4ZYdvxfULdolUOFpr88dH9xEc7vum1Hw",
+      authDomain: "queue-monitoring-system-6e8e9.firebaseapp.com",
+      projectId: "queue-monitoring-system-6e8e9",
+      storageBucket: "queue-monitoring-system-6e8e9.firebasestorage.app",
+      messagingSenderId: "336774642653",
+      appId: "1:336774642653:web:d8340625402803db19d434",
+    ),
+  );
   runApp(const QueueMonitoringApp());
 }
 
@@ -53,4 +65,3 @@ class _AppShell extends StatelessWidget {
     return const WelcomeScreen();
   }
 }
-

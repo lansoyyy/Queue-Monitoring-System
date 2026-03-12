@@ -20,18 +20,22 @@ class TicketPrintScreen extends StatelessWidget {
         title: Text(
           'Queue Ticket Preview',
           style: GoogleFonts.poppins(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Colors.white),
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
         ),
         actions: [
           TextButton.icon(
             onPressed: () => Navigator.of(context).popUntil((r) => r.isFirst),
-            icon: const Icon(Icons.home_rounded, color: Colors.white70, size: 16),
+            icon: const Icon(
+              Icons.home_rounded,
+              color: Colors.white70,
+              size: 16,
+            ),
             label: Text(
               'Return Home',
-              style: GoogleFonts.poppins(
-                  fontSize: 12, color: Colors.white70),
+              style: GoogleFonts.poppins(fontSize: 12, color: Colors.white70),
             ),
           ),
           const SizedBox(width: 8),
@@ -56,8 +60,11 @@ class TicketPrintScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               // Hospital header
-              const Icon(Icons.local_hospital,
-                  size: 32, color: AppColors.primary),
+              const Icon(
+                Icons.local_hospital,
+                size: 32,
+                color: AppColors.primary,
+              ),
               const SizedBox(height: 4),
               Text(
                 'NMMC',
@@ -107,8 +114,7 @@ class TicketPrintScreen extends StatelessWidget {
               const SizedBox(height: 8),
               _ticketPill('DEPARTMENT', ticket.departmentName),
               const SizedBox(height: 8),
-              _ticketPill('SERVICE',
-                  ticket.serviceName.replaceAll('\n', ' ')),
+              _ticketPill('SERVICE', ticket.serviceName.replaceAll('\n', ' ')),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 16),
                 child: Divider(color: AppColors.border),

@@ -19,7 +19,8 @@ class QueueInfoScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF5FAF7),
       appBar: KioskAppBar(
-        breadcrumb: '${ticket.departmentName}  ›  ${ticket.serviceName.replaceAll('\n', ' ')}',
+        breadcrumb:
+            '${ticket.departmentName}  ›  ${ticket.serviceName.replaceAll('\n', ' ')}',
         onMenuTap: () => Navigator.of(context).popUntil((r) => r.isFirst),
       ),
       body: Column(
@@ -42,13 +43,18 @@ class QueueInfoScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(right: 24, top: 12),
+                                padding: const EdgeInsets.only(
+                                  right: 24,
+                                  top: 12,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
                                     Container(
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 12, vertical: 6),
+                                        horizontal: 12,
+                                        vertical: 6,
+                                      ),
                                       decoration: BoxDecoration(
                                         color: AppColors.primary,
                                         borderRadius: BorderRadius.circular(8),
@@ -72,7 +78,8 @@ class QueueInfoScreen extends StatelessWidget {
                                         color: AppColors.primary,
                                       ),
                                       dataModuleStyle: const QrDataModuleStyle(
-                                        dataModuleShape: QrDataModuleShape.square,
+                                        dataModuleShape:
+                                            QrDataModuleShape.square,
                                         color: AppColors.primary,
                                       ),
                                     ),
@@ -102,13 +109,16 @@ class QueueInfoScreen extends StatelessWidget {
                           const SizedBox(height: 6),
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 32, vertical: 12),
+                              horizontal: 32,
+                              vertical: 12,
+                            ),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                  color: AppColors.primary.withAlpha(80),
-                                  width: 2),
+                                color: AppColors.primary.withAlpha(80),
+                                width: 2,
+                              ),
                               boxShadow: [
                                 BoxShadow(
                                   color: AppColors.primary.withAlpha(30),
@@ -151,9 +161,12 @@ class QueueInfoScreen extends StatelessWidget {
                                       TicketPrintScreen(ticket: ticket),
                                   transitionsBuilder: (_, anim, __, child) =>
                                       FadeTransition(
-                                          opacity: anim, child: child),
-                                  transitionDuration:
-                                      const Duration(milliseconds: 300),
+                                        opacity: anim,
+                                        child: child,
+                                      ),
+                                  transitionDuration: const Duration(
+                                    milliseconds: 300,
+                                  ),
                                 ),
                               );
                             },
@@ -171,7 +184,9 @@ class QueueInfoScreen extends StatelessWidget {
                               foregroundColor: Colors.white,
                               elevation: 2,
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 32, vertical: 14),
+                                horizontal: 32,
+                                vertical: 14,
+                              ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
@@ -179,8 +194,9 @@ class QueueInfoScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 12),
                           TextButton(
-                            onPressed: () => Navigator.of(context)
-                                .popUntil((r) => r.isFirst),
+                            onPressed: () => Navigator.of(
+                              context,
+                            ).popUntil((r) => r.isFirst),
                             child: Text(
                               'Return to Home',
                               style: GoogleFonts.poppins(
@@ -242,8 +258,10 @@ class _ReceiptSidebar extends StatelessWidget {
           const SizedBox(height: 20),
           _sidebarItem(Icons.apartment, ticket.departmentName),
           const SizedBox(height: 8),
-          _sidebarItem(Icons.medical_services,
-              ticket.serviceName.replaceAll('\n', ' ')),
+          _sidebarItem(
+            Icons.medical_services,
+            ticket.serviceName.replaceAll('\n', ' '),
+          ),
           const SizedBox(height: 8),
           _sidebarItem(Icons.person, ticket.doctorName),
           const SizedBox(height: 8),

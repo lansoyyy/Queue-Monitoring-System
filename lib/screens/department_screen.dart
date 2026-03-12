@@ -79,10 +79,7 @@ class _DeptOverviewGrid extends StatelessWidget {
   final Department department;
   final VoidCallback onConfirm;
 
-  const _DeptOverviewGrid({
-    required this.department,
-    required this.onConfirm,
-  });
+  const _DeptOverviewGrid({required this.department, required this.onConfirm});
 
   @override
   Widget build(BuildContext context) {

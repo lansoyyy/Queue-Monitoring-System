@@ -139,18 +139,30 @@ class DepartmentSidebar extends StatelessWidget {
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(vertical: 8),
               itemCount: items.length,
-              separatorBuilder: (_, __) =>
-                  const Divider(height: 1, indent: 12, endIndent: 12, color: AppColors.border),
+              separatorBuilder: (_, __) => const Divider(
+                height: 1,
+                indent: 12,
+                endIndent: 12,
+                color: AppColors.border,
+              ),
               itemBuilder: (_, i) {
                 final selected = i == selectedIndex;
                 return GestureDetector(
                   onTap: () => onSelect(i),
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 180),
-                    margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 2,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
                     decoration: BoxDecoration(
-                      color: selected ? AppColors.sidebarSelected : Colors.transparent,
+                      color: selected
+                          ? AppColors.sidebarSelected
+                          : Colors.transparent,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(
@@ -158,7 +170,9 @@ class DepartmentSidebar extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
-                        fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
+                        fontWeight: selected
+                            ? FontWeight.w600
+                            : FontWeight.w400,
                         color: selected ? Colors.white : AppColors.textPrimary,
                       ),
                     ),
@@ -195,8 +209,8 @@ class ServiceTile extends StatelessWidget {
     final bg = isSelected
         ? AppColors.primaryDark
         : isAvailable
-            ? AppColors.tileActive
-            : AppColors.tileUnavailable;
+        ? AppColors.tileActive
+        : AppColors.tileUnavailable;
 
     final textColor = isAvailable ? Colors.white : AppColors.textSecondary;
 
@@ -213,7 +227,7 @@ class ServiceTile extends StatelessWidget {
                     color: AppColors.primary.withAlpha(60),
                     blurRadius: 6,
                     offset: const Offset(0, 3),
-                  )
+                  ),
                 ]
               : [],
         ),
@@ -254,11 +268,7 @@ class ServiceTile extends StatelessWidget {
               ),
             ),
             if (trailing != null)
-              Positioned(
-                top: 6,
-                right: 6,
-                child: trailing!,
-              ),
+              Positioned(top: 6, right: 6, child: trailing!),
           ],
         ),
       ),

@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 /// App Colors for Queue Monitoring System — Healthcare Green Palette
 class AppColors {
   // Primary Green Colors
-  static const Color primary = Color(0xFF1E7B3E);        // Deep healthcare green
-  static const Color primaryDark = Color(0xFF145529);    // Darker for pressed states
-  static const Color primaryLight = Color(0xFF2EA055);   // Lighter variant
-  static const Color primaryMedium = Color(0xFF27AE60);  // Medium green for highlights
+  static const Color primary = Color(0xFF1E7B3E); // Deep healthcare green
+  static const Color primaryDark = Color(
+    0xFF145529,
+  ); // Darker for pressed states
+  static const Color primaryLight = Color(0xFF2EA055); // Lighter variant
+  static const Color primaryMedium = Color(
+    0xFF27AE60,
+  ); // Medium green for highlights
 
   // Secondary Colors
   static const Color secondary = Color(0xFF2ECC71);
@@ -49,11 +53,17 @@ class AppColors {
   static const Color queueSkipped = Color(0xFF6B7280);
 
   // Tile Colors (for service tiles)
-  static const Color tileActive = Color(0xFF1E7B3E);       // Active service tile
-  static const Color tileInactive = Color(0xFFA8D5B5);     // Inactive tile (light green)
-  static const Color tileUnavailable = Color(0xFFD6EFE0);  // Unavailable (very faded)
-  static const Color sidebarBg = Color(0xFFF0FAF4);        // Sidebar background
-  static const Color sidebarSelected = Color(0xFF1E7B3E);  // Selected sidebar item
+  static const Color tileActive = Color(0xFF1E7B3E); // Active service tile
+  static const Color tileInactive = Color(
+    0xFFA8D5B5,
+  ); // Inactive tile (light green)
+  static const Color tileUnavailable = Color(
+    0xFFD6EFE0,
+  ); // Unavailable (very faded)
+  static const Color sidebarBg = Color(0xFFF0FAF4); // Sidebar background
+  static const Color sidebarSelected = Color(
+    0xFF1E7B3E,
+  ); // Selected sidebar item
 
   // Shadow Colors
   static const Color shadow = Color(0x1A000000);

@@ -32,8 +32,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
   @override
   void initState() {
     super.initState();
-    _selectedDeptIndex =
-        _depts.indexWhere((d) => d.id == widget.department.id);
+    _selectedDeptIndex = _depts.indexWhere((d) => d.id == widget.department.id);
     if (_selectedDeptIndex < 0) _selectedDeptIndex = 0;
   }
 
@@ -44,7 +43,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
       ticketNumber: ticketNum.toString(),
       departmentName: dept.name,
       serviceName: service.name.replaceAll('\n', ' '),
-      doctorName: HospitalData.doctorAssignments[dept.id] ?? 'On-Duty Physician',
+      doctorName:
+          HospitalData.doctorAssignments[dept.id] ?? 'On-Duty Physician',
       roomNumber: HospitalData.roomAssignments[dept.id] ?? 'Room TBA',
       issuedAt: DateTime.now(),
       qrData: 'https://nmmc.queue/monitor?dept=${dept.id}&ticket=$ticketNum',
@@ -92,11 +92,14 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 24, vertical: 14),
+                          horizontal: 24,
+                          vertical: 14,
+                        ),
                         decoration: const BoxDecoration(
                           color: Colors.white,
                           border: Border(
-                              bottom: BorderSide(color: AppColors.border)),
+                            bottom: BorderSide(color: AppColors.border),
+                          ),
                         ),
                         child: Row(
                           children: [
@@ -105,18 +108,24 @@ class _ServiceScreenState extends State<ServiceScreen> {
                               onTap: () => Navigator.of(context).pop(),
                               child: Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 6),
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
                                 decoration: BoxDecoration(
                                   color: AppColors.primary.withAlpha(15),
                                   borderRadius: BorderRadius.circular(20),
                                   border: Border.all(
-                                      color: AppColors.primary.withAlpha(50)),
+                                    color: AppColors.primary.withAlpha(50),
+                                  ),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    const Icon(Icons.arrow_back_ios_new,
-                                        size: 12, color: AppColors.primary),
+                                    const Icon(
+                                      Icons.arrow_back_ios_new,
+                                      size: 12,
+                                      color: AppColors.primary,
+                                    ),
                                     const SizedBox(width: 4),
                                     Text(
                                       'Departments',
@@ -131,8 +140,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
                               ),
                             ),
                             const SizedBox(width: 12),
-                            const Icon(Icons.chevron_right,
-                                size: 16, color: AppColors.textTertiary),
+                            const Icon(
+                              Icons.chevron_right,
+                              size: 16,
+                              color: AppColors.textTertiary,
+                            ),
                             const SizedBox(width: 8),
                             Text(
                               dept.shortName,
@@ -161,11 +173,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           child: GridView.builder(
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 14,
-                              crossAxisSpacing: 14,
-                              childAspectRatio: 1.4,
-                            ),
+                                  crossAxisCount: 3,
+                                  mainAxisSpacing: 14,
+                                  crossAxisSpacing: 14,
+                                  childAspectRatio: 1.4,
+                                ),
                             itemCount: services.length,
                             itemBuilder: (_, i) {
                               final svc = services[i];

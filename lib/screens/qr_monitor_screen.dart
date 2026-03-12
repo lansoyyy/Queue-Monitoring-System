@@ -87,7 +87,9 @@ class _QrMonitorScreenState extends State<QrMonitorScreen> {
                       // Dept / Service chip
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
                         decoration: BoxDecoration(
                           color: AppColors.primary,
                           borderRadius: BorderRadius.circular(8),
@@ -115,7 +117,9 @@ class _QrMonitorScreenState extends State<QrMonitorScreen> {
                         children: [
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 6),
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
                             decoration: BoxDecoration(
                               color: AppColors.primary,
                               borderRadius: BorderRadius.circular(8),
@@ -193,7 +197,9 @@ class _QrMonitorScreenState extends State<QrMonitorScreen> {
                           Container(
                             width: 320,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 18),
+                              horizontal: 24,
+                              vertical: 18,
+                            ),
                             decoration: BoxDecoration(
                               color: AppColors.primary,
                               borderRadius: BorderRadius.circular(14),
@@ -223,7 +229,9 @@ class _QrMonitorScreenState extends State<QrMonitorScreen> {
                           Container(
                             width: 320,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 20),
+                              horizontal: 24,
+                              vertical: 20,
+                            ),
                             decoration: BoxDecoration(
                               color: AppColors.primary,
                               borderRadius: BorderRadius.circular(14),
@@ -275,7 +283,9 @@ class _QrMonitorScreenState extends State<QrMonitorScreen> {
     final myNum = int.tryParse(number) ?? 0;
     final currNum = int.tryParse(_currentPatient) ?? 0;
     final diff = myNum - currNum;
-    final ahead = diff > 0 ? '$diff patient${diff > 1 ? 's' : ''} ahead' : 'Your turn!';
+    final ahead = diff > 0
+        ? '$diff patient${diff > 1 ? 's' : ''} ahead'
+        : 'Your turn!';
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

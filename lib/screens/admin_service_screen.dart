@@ -24,8 +24,9 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
   }
 
   void _toggleService(int index, bool value) {
-    setState(() =>
-        _services[index] = _services[index].copyWith(isAvailable: value));
+    setState(
+      () => _services[index] = _services[index].copyWith(isAvailable: value),
+    );
   }
 
   void _addService() {
@@ -43,8 +44,7 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5FAF7),
       appBar: KioskAppBar(
-        breadcrumb:
-            'Admin  ›  ${widget.department.shortName}  ›  Services',
+        breadcrumb: 'Admin  ›  ${widget.department.shortName}  ›  Services',
         onMenuTap: () => Navigator.of(context).pop(),
       ),
       body: Column(
@@ -53,8 +53,7 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
           // Sub-header
           Container(
             width: double.infinity,
-            padding:
-                const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
             color: Colors.white,
             child: Row(
               children: [
@@ -62,18 +61,24 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                   onTap: () => Navigator.of(context).pop(),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 6),
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.primary.withAlpha(15),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                          color: AppColors.primary.withAlpha(50)),
+                        color: AppColors.primary.withAlpha(50),
+                      ),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Icon(Icons.arrow_back_ios_new,
-                            size: 12, color: AppColors.primary),
+                        const Icon(
+                          Icons.arrow_back_ios_new,
+                          size: 12,
+                          color: AppColors.primary,
+                        ),
                         const SizedBox(width: 4),
                         Text(
                           'Departments',
@@ -88,8 +93,11 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                   ),
                 ),
                 const SizedBox(width: 12),
-                const Icon(Icons.chevron_right,
-                    size: 16, color: AppColors.textTertiary),
+                const Icon(
+                  Icons.chevron_right,
+                  size: 16,
+                  color: AppColors.textTertiary,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   widget.department.shortName,
@@ -119,8 +127,7 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                   width: 185,
                   decoration: const BoxDecoration(
                     color: AppColors.sidebarBg,
-                    border: Border(
-                        right: BorderSide(color: AppColors.border)),
+                    border: Border(right: BorderSide(color: AppColors.border)),
                   ),
                   child: Column(
                     children: [
@@ -130,23 +137,27 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                           padding: const EdgeInsets.symmetric(vertical: 6),
                           itemCount: _services.length,
                           separatorBuilder: (_, __) => const Divider(
-                              height: 1,
-                              indent: 12,
-                              endIndent: 12,
-                              color: AppColors.border),
+                            height: 1,
+                            indent: 12,
+                            endIndent: 12,
+                            color: AppColors.border,
+                          ),
                           itemBuilder: (_, i) {
                             final svc = _services[i];
                             return Container(
                               margin: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 2),
+                                horizontal: 8,
+                                vertical: 2,
+                              ),
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 6),
+                                horizontal: 10,
+                                vertical: 6,
+                              ),
                               child: Row(
                                 children: [
                                   Expanded(
                                     child: Text(
-                                      svc.name
-                                          .replaceAll('\n', ' '),
+                                      svc.name.replaceAll('\n', ' '),
                                       style: GoogleFonts.poppins(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w400,
@@ -160,8 +171,7 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                                     scale: 0.75,
                                     child: Switch(
                                       value: svc.isAvailable,
-                                      onChanged: (v) =>
-                                          _toggleService(i, v),
+                                      onChanged: (v) => _toggleService(i, v),
                                       activeColor: AppColors.primaryLight,
                                       activeTrackColor: AppColors.primary,
                                       inactiveThumbColor: Colors.white,
@@ -184,11 +194,11 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                     child: GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 14,
-                        crossAxisSpacing: 14,
-                        childAspectRatio: 1.4,
-                      ),
+                            crossAxisCount: 3,
+                            mainAxisSpacing: 14,
+                            crossAxisSpacing: 14,
+                            childAspectRatio: 1.4,
+                          ),
                       itemCount: _services.length + 1,
                       itemBuilder: (_, i) {
                         if (i == 0) {
@@ -200,20 +210,19 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(14),
                                 border: Border.all(
-                                  color:
-                                      AppColors.primary.withAlpha(80),
+                                  color: AppColors.primary.withAlpha(80),
                                   width: 2,
                                   style: BorderStyle.solid,
                                 ),
                               ),
                               child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(Icons.add_circle_outline,
-                                      size: 28,
-                                      color: AppColors.primary
-                                          .withAlpha(180)),
+                                  Icon(
+                                    Icons.add_circle_outline,
+                                    size: 28,
+                                    color: AppColors.primary.withAlpha(180),
+                                  ),
                                   const SizedBox(height: 6),
                                   Text(
                                     'Add Service',
@@ -241,8 +250,7 @@ class _AdminServiceScreenState extends State<AdminServiceScreen> {
                               activeColor: Colors.white,
                               activeTrackColor: AppColors.primaryDark,
                               inactiveThumbColor: Colors.white,
-                              inactiveTrackColor:
-                                  Colors.white.withAlpha(80),
+                              inactiveTrackColor: Colors.white.withAlpha(80),
                             ),
                           ),
                         );
@@ -263,10 +271,7 @@ class _AddServiceDialog extends StatefulWidget {
   final String departmentId;
   final ValueChanged<ServiceItem> onAdd;
 
-  const _AddServiceDialog({
-    required this.departmentId,
-    required this.onAdd,
-  });
+  const _AddServiceDialog({required this.departmentId, required this.onAdd});
 
   @override
   State<_AddServiceDialog> createState() => _AddServiceDialogState();
@@ -297,8 +302,7 @@ class _AddServiceDialogState extends State<_AddServiceDialog> {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide:
-                const BorderSide(color: AppColors.primary, width: 2),
+            borderSide: const BorderSide(color: AppColors.primary, width: 2),
           ),
         ),
         style: GoogleFonts.poppins(fontSize: 14),
@@ -306,19 +310,22 @@ class _AddServiceDialogState extends State<_AddServiceDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text('Cancel',
-              style:
-                  GoogleFonts.poppins(color: AppColors.textSecondary)),
+          child: Text(
+            'Cancel',
+            style: GoogleFonts.poppins(color: AppColors.textSecondary),
+          ),
         ),
         ElevatedButton(
           onPressed: () {
             if (_ctrl.text.trim().isNotEmpty) {
-              widget.onAdd(ServiceItem(
-                id: 'svc_${DateTime.now().millisecondsSinceEpoch}',
-                name: _ctrl.text.trim(),
-                departmentId: widget.departmentId,
-                isAvailable: true,
-              ));
+              widget.onAdd(
+                ServiceItem(
+                  id: 'svc_${DateTime.now().millisecondsSinceEpoch}',
+                  name: _ctrl.text.trim(),
+                  departmentId: widget.departmentId,
+                  isAvailable: true,
+                ),
+              );
               Navigator.pop(context);
             }
           },
@@ -326,11 +333,13 @@ class _AddServiceDialogState extends State<_AddServiceDialog> {
             backgroundColor: AppColors.primary,
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8)),
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
-          child: Text('Add',
-              style:
-                  GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+          child: Text(
+            'Add',
+            style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+          ),
         ),
       ],
     );

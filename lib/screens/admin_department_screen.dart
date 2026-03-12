@@ -11,18 +11,17 @@ class AdminDepartmentScreen extends StatefulWidget {
   const AdminDepartmentScreen({super.key});
 
   @override
-  State<AdminDepartmentScreen> createState() =>
-      _AdminDepartmentScreenState();
+  State<AdminDepartmentScreen> createState() => _AdminDepartmentScreenState();
 }
 
 class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
-  final List<Department> _departments =
-      List.from(HospitalData.departments);
+  final List<Department> _departments = List.from(HospitalData.departments);
   int _selectedIndex = 0;
 
   void _toggleDept(int index, bool value) {
-    setState(() => _departments[index] =
-        _departments[index].copyWith(isActive: value));
+    setState(
+      () => _departments[index] = _departments[index].copyWith(isActive: value),
+    );
   }
 
   void _addDepartment() {
@@ -50,8 +49,9 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final selectedDept =
-        _departments.isNotEmpty ? _departments[_selectedIndex] : null;
+    final selectedDept = _departments.isNotEmpty
+        ? _departments[_selectedIndex]
+        : null;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5FAF7),
@@ -70,8 +70,7 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
                   width: 185,
                   decoration: const BoxDecoration(
                     color: AppColors.sidebarBg,
-                    border:
-                        Border(right: BorderSide(color: AppColors.border)),
+                    border: Border(right: BorderSide(color: AppColors.border)),
                   ),
                   child: Column(
                     children: [
@@ -92,8 +91,11 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Icon(Icons.add,
-                                  size: 18, color: AppColors.primary),
+                              const Icon(
+                                Icons.add,
+                                size: 18,
+                                color: AppColors.primary,
+                              ),
                               const SizedBox(width: 4),
                               Text(
                                 'Add Dept',
@@ -113,23 +115,26 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
                           padding: const EdgeInsets.symmetric(vertical: 6),
                           itemCount: _departments.length,
                           separatorBuilder: (_, __) => const Divider(
-                              height: 1,
-                              indent: 12,
-                              endIndent: 12,
-                              color: AppColors.border),
+                            height: 1,
+                            indent: 12,
+                            endIndent: 12,
+                            color: AppColors.border,
+                          ),
                           itemBuilder: (_, i) {
                             final dept = _departments[i];
                             final selected = i == _selectedIndex;
                             return GestureDetector(
-                              onTap: () =>
-                                  setState(() => _selectedIndex = i),
+                              onTap: () => setState(() => _selectedIndex = i),
                               child: AnimatedContainer(
-                                duration:
-                                    const Duration(milliseconds: 180),
+                                duration: const Duration(milliseconds: 180),
                                 margin: const EdgeInsets.symmetric(
-                                    horizontal: 8, vertical: 2),
+                                  horizontal: 8,
+                                  vertical: 2,
+                                ),
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 8),
+                                  horizontal: 10,
+                                  vertical: 8,
+                                ),
                                 decoration: BoxDecoration(
                                   color: selected
                                       ? AppColors.sidebarSelected
@@ -158,8 +163,7 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
                                       scale: 0.75,
                                       child: Switch(
                                         value: dept.isActive,
-                                        onChanged: (v) =>
-                                            _toggleDept(i, v),
+                                        onChanged: (v) => _toggleDept(i, v),
                                         activeColor: selected
                                             ? Colors.white
                                             : AppColors.primaryLight,
@@ -167,8 +171,7 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
                                             ? AppColors.primaryLight
                                             : AppColors.primaryDark,
                                         inactiveThumbColor: Colors.white,
-                                        inactiveTrackColor:
-                                            AppColors.border,
+                                        inactiveTrackColor: AppColors.border,
                                       ),
                                     ),
                                   ],
@@ -189,8 +192,8 @@ class _AdminDepartmentScreenState extends State<AdminDepartmentScreen> {
                           department: selectedDept,
                           onManageServices: () => Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (_) => AdminServiceScreen(
-                                  department: selectedDept),
+                              builder: (_) =>
+                                  AdminServiceScreen(department: selectedDept),
                             ),
                           ),
                         ),
@@ -269,7 +272,9 @@ class _DeptTileGrid extends StatelessWidget {
                   foregroundColor: Colors.white,
                   elevation: 0,
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 10),
+                    horizontal: 16,
+                    vertical: 10,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -282,8 +287,7 @@ class _DeptTileGrid extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: GridView.builder(
-              gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 mainAxisSpacing: 14,
                 crossAxisSpacing: 14,
@@ -368,8 +372,10 @@ class _AddItemDialogState extends State<_AddItemDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text('Cancel',
-              style: GoogleFonts.poppins(color: AppColors.textSecondary)),
+          child: Text(
+            'Cancel',
+            style: GoogleFonts.poppins(color: AppColors.textSecondary),
+          ),
         ),
         ElevatedButton(
           onPressed: () {
@@ -381,11 +387,14 @@ class _AddItemDialogState extends State<_AddItemDialog> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             foregroundColor: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
-          child: Text('Add',
-              style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+          child: Text(
+            'Add',
+            style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
+          ),
         ),
       ],
     );
