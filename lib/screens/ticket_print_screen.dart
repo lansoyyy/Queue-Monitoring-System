@@ -56,102 +56,107 @@ class TicketPrintScreen extends StatelessWidget {
               ),
             ],
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Hospital header
-              const Icon(
-                Icons.local_hospital,
-                size: 32,
-                color: AppColors.primary,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'NMMC',
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Hospital header
+                const Icon(
+                  Icons.local_hospital,
+                  size: 32,
                   color: AppColors.primary,
                 ),
-              ),
-              Text(
-                'Northern Mindanao Medical Center',
-                style: GoogleFonts.poppins(
-                  fontSize: 9,
-                  color: AppColors.textSecondary,
+                const SizedBox(height: 4),
+                Text(
+                  'NMMC',
+                  style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w800,
+                    color: AppColors.primary,
+                  ),
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Outpatient Department',
-                style: GoogleFonts.poppins(
-                  fontSize: 10,
-                  color: AppColors.textTertiary,
+                Text(
+                  'Northern Mindanao Medical Center',
+                  style: GoogleFonts.poppins(
+                    fontSize: 9,
+                    color: AppColors.textSecondary,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 12),
-                child: Divider(color: AppColors.border),
-              ),
-              // Queue number big
-              Text(
-                ticket.formattedNumber,
-                style: GoogleFonts.poppins(
-                  fontSize: 56,
-                  fontWeight: FontWeight.w900,
-                  color: AppColors.primary,
-                  height: 1,
+                const SizedBox(height: 4),
+                Text(
+                  'Outpatient Department',
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    color: AppColors.textTertiary,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              // Info pills
-              _ticketPill('WAITING NUMBER', ticket.formattedNumber),
-              const SizedBox(height: 8),
-              _ticketPill('DOCTOR ASSIGNED', ticket.doctorName),
-              const SizedBox(height: 8),
-              _ticketPill('ROOM NUMBER', ticket.roomNumber),
-              const SizedBox(height: 8),
-              _ticketPill('DEPARTMENT', ticket.departmentName),
-              const SizedBox(height: 8),
-              _ticketPill('SERVICE', ticket.serviceName.replaceAll('\n', ' ')),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16),
-                child: Divider(color: AppColors.border),
-              ),
-              // QR code
-              QrImageView(
-                data: ticket.qrData,
-                version: QrVersions.auto,
-                size: 120,
-                eyeStyle: const QrEyeStyle(
-                  eyeShape: QrEyeShape.square,
-                  color: AppColors.primary,
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12),
+                  child: Divider(color: AppColors.border),
                 ),
-                dataModuleStyle: const QrDataModuleStyle(
-                  dataModuleShape: QrDataModuleShape.square,
-                  color: AppColors.primary,
+                // Queue number big
+                Text(
+                  ticket.formattedNumber,
+                  style: GoogleFonts.poppins(
+                    fontSize: 56,
+                    fontWeight: FontWeight.w900,
+                    color: AppColors.primary,
+                    height: 1,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Scan QR to monitor your queue remotely',
-                style: GoogleFonts.poppins(
-                  fontSize: 9,
-                  color: AppColors.textTertiary,
+                const SizedBox(height: 16),
+                // Info pills
+                _ticketPill('WAITING NUMBER', ticket.formattedNumber),
+                const SizedBox(height: 8),
+                _ticketPill('DOCTOR ASSIGNED', ticket.doctorName),
+                const SizedBox(height: 8),
+                _ticketPill('ROOM NUMBER', ticket.roomNumber),
+                const SizedBox(height: 8),
+                _ticketPill('DEPARTMENT', ticket.departmentName),
+                const SizedBox(height: 8),
+                _ticketPill(
+                  'SERVICE',
+                  ticket.serviceName.replaceAll('\n', ' '),
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                ticket.qrData,
-                style: GoogleFonts.robotoMono(
-                  fontSize: 8,
-                  color: AppColors.textTertiary,
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                  child: Divider(color: AppColors.border),
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+                // QR code
+                QrImageView(
+                  data: ticket.qrData,
+                  version: QrVersions.auto,
+                  size: 120,
+                  eyeStyle: const QrEyeStyle(
+                    eyeShape: QrEyeShape.square,
+                    color: AppColors.primary,
+                  ),
+                  dataModuleStyle: const QrDataModuleStyle(
+                    dataModuleShape: QrDataModuleShape.square,
+                    color: AppColors.primary,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Scan QR to monitor your queue remotely',
+                  style: GoogleFonts.poppins(
+                    fontSize: 9,
+                    color: AppColors.textTertiary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  ticket.qrData,
+                  style: GoogleFonts.robotoMono(
+                    fontSize: 8,
+                    color: AppColors.textTertiary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),
